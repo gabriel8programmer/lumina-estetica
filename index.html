@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lumina Estética — Beleza com sofisticação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     LUMINA ESTÉTICA — CONCEITO VISUAL
+     Paleta, tipografia e ritmo espacial
+     ============================================ */
+  :root{
+    --cream:      #FAF7F2;
+    --cream-2:    #F2ECE2;
+    --paper:      #FFFFFF;
+    --ink:        #221E19;
+    --ink-soft:   #4A423A;
+    --muted:      #8C8178;
+    --line:       #E5DDD0;
+    --gold:       #B48A55;
+    --gold-soft:  #D9BE92;
+    --nude:       #E8D9C6;
+
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'Jost', system-ui, -apple-system, sans-serif;
+
+    --max: 1240px;
+    --pad: 32px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--ink-soft);
+    background: var(--cream);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: .01em;
+  }
+  img{ display:block; max-width:100%; height:auto; }
+  a{ color: inherit; text-decoration: none; }
+  button{ font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  /* ---------- Tipografia base ---------- */
+  h1,h2,h3,h4{
+    font-family: var(--serif);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  h1{ font-size: clamp(2.6rem, 5.2vw, 4.6rem); font-weight: 300; }
+  h2{ font-size: clamp(2rem, 3.6vw, 3.2rem); }
+  h3{ font-size: clamp(1.3rem, 2vw, 1.6rem); }
+  .eyebrow{
+    font-family: var(--sans);
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .eyebrow::before{
+    content:"";
+    display:inline-block;
+    width: 26px;
+    height:1px;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-right: 14px;
+    transform: translateY(-3px);
+  }
+  .lead{ font-size: 1.05rem; color: var(--ink-soft); max-width: 54ch; }
+
+  /* ---------- Container ---------- */
+  .container{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad);
+  }
+
+  /* ---------- Botões ---------- */
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: .78rem;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    border-radius: 0;
+    transition: all .35s ease;
+    white-space: nowrap;
+  }
+  .btn-primary{
+    background: var(--ink);
+    color: var(--cream);
+    border: 1px solid var(--ink);
+  }
+  .btn-primary:hover{
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #fff;
+  }
+  .btn-outline{
+    border: 1px solid var(--ink);
+    color: var(--ink);
+  }
+  .btn-outline:hover{
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn-gold{
+    background: var(--gold);
+    color: #fff;
+    border: 1px solid var(--gold);
+  }
+  .btn-gold:hover{
+    background: #9e7647;
+    border-color: #9e7647;
+  }
+  .btn .arrow{
+    display:inline-block;
+    transition: transform .35s ease;
+  }
+  .btn:hover .arrow{ transform: translateX(4px); }
+
+  /* ---------- Header ---------- */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 247, 242, .88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 84px;
+  }
+  .logo{
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: .12em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .logo span{ color: var(--gold); }
+  .logo small{
+    display:block;
+    font-family: var(--sans);
+    font-size: .58rem;
+    letter-spacing: .42em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .nav-links{
+    display: flex;
+    gap: 38px;
+    list-style: none;
+  }
+  .nav-links a{
+    font-size: .78rem;
+    font-weight: 400;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    position: relative;
+    padding: 4px 0;
+    transition: color .3s ease;
+  }
+  .nav-links a::after{
+    content:"";
+    position: absolute;
+    left:0; bottom:0;
+    width: 0; height:1px;
+    background: var(--gold);
+    transition: width .35s ease;
+  }
+  .nav-links a:hover{ color: var(--ink); }
+  .nav-links a:hover::after{ width: 100%; }
+
+  .nav-cta{ display: inline-flex; }
+  .menu-toggle{ display: none; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 90px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .hero-content h1{ margin: 22px 0 26px; }
+  .hero-content h1 em{
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .hero-content .lead{ margin-bottom: 40px; }
+  .hero-actions{
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-meta{
+    display: flex;
+    gap: 34px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta div strong{
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.9rem;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .hero-meta div span{
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-visual{
+    position: relative;
+  }
+  .hero-visual .frame{
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+  .hero-visual .frame img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s ease;
+  }
+  .hero-visual::before{
+    content:"";
+    position: absolute;
+    top: -22px; right: -22px;
+    width: 60%; height: 60%;
+    border: 1px solid var(--gold-soft);
+    z-index: -1;
+  }
+  .hero-visual::after{
+    content:"";
+    position: absolute;
+    bottom: -22px; left: -22px;
+    width: 55%; height: 40%;
+    background: var(--nude);
+    z-index: -1;
+  }
+  .hero-badge{
+    position: absolute;
+    bottom: 30px;
+    left: -30px;
+    background: var(--paper);
+    padding: 20px 26px;
+    box-shadow: 0 24px 60px rgba(34,30,25,.08);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 260px;
+  }
+  .hero-badge .star{
+    color: var(--gold);
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  .hero-badge p{
+    font-size: .78rem;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .hero-badge p small{
+    display:block;
+    color: var(--muted);
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* ---------- Marquee faixa ---------- */
+  .strip{
+    background: var(--ink);
+    color: var(--cream);
+    padding: 22px 0;
+    overflow: hidden;
+  }
+  .strip-track{
+    display: flex;
+    gap: 70px;
+    white-space: nowrap;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    letter-spacing: .06em;
+    animation: scroll 38s linear infinite;
+    width: max-content;
+  }
+  .strip-track span{
+    display: inline-flex;
+    align-items: center;
+    gap: 70px;
+  }
+  .strip-track span::after{
+    content:"✦";
+    color: var(--gold);
+    font-style: normal;
+    font-size: .8rem;
+  }
+  @keyframes scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ---------- Section base ---------- */
+  section{ padding: 110px 0; }
+  .section-head{
+    max-width: 660px;
+    margin-bottom: 70px;
+  }
+  .section-head h2{ margin: 20px 0 22px; }
+  .section-head.center{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .section-head.center .eyebrow::before{ display: none; }
+  .section-head.center .eyebrow{
+    padding-left: 0;
+  }
+
+  /* ---------- Procedimentos ---------- */
+  .procedures{ background: var(--paper); }
+  .procedures-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .proc-card{
+    background: var(--cream);
+    border: 1px solid var(--line);
+    padding: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .5s ease, box-shadow .5s ease;
+  }
+  .proc-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 30px 70px rgba(34,30,25,.07);
+  }
+  .proc-image{
+    aspect-ratio: 5/4;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  .proc-image img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+  }
+  .proc-card:hover .proc-image img{ transform: scale(1.06); }
+  .proc-body{ padding: 0 34px; }
+  .proc-body .num{
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .proc-body h3{ margin-bottom: 12px; }
+  .proc-body p{
+    font-size: .92rem;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .proc-body .link{
+    font-size: .74rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .proc-body .link::after{
+    content:"→";
+    transition: transform .3s ease;
+  }
+  .proc-body .link:hover::after{ transform: translateX(5px); }
+
+  /* ---------- Diferenciais ---------- */
+  .diff-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .diff-item{
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+  }
+  .diff-item .icon{
+    width: 46px; height: 46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--gold);
+    margin-bottom: 22px;
+    font-size: 1.5rem;
+    font-family: var(--serif);
+    font-style: italic;
+  }
+  .diff-item h3{
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  .diff-item p{
+    font-size: .9rem;
+    color: var(--muted);
+  }
+
+  /* ---------- Antes e Depois ---------- */
+  .beforeafter{
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .beforeafter .section-head h2{ color: var(--cream); }
+  .beforeafter .section-head .lead{ color: rgba(250,247,242,.7); }
+  .beforeafter .eyebrow{ color: var(--gold-soft); }
+  .beforeafter .eyebrow::before{ background: var(--gold-soft); }
+
+  .ba-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .ba-card{
+    position: relative;
+    overflow: hidden;
+  }
+  .ba-card .ba-imgs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    aspect-ratio: 1/1;
+  }
+  .ba-card .ba-imgs img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.95);
+  }
+  .ba-card .labels{
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+  }
+  .ba-card .labels span{
+    font-size: .62rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(34,30,25,.55);
+    padding: 5px 10px;
+    backdrop-filter: blur(4px);
+  }
+  .ba-card .caption{
+    padding: 20px 0 0;
+    font-size: .85rem;
+    color: rgba(250,247,242,.75);
+    border-top: 1px solid rgba(250,247,242,.15);
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .ba-card .caption strong{
+    color: var(--cream);
+    font-weight: 400;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+  }
+  .ba-disclaimer{
+    margin-top: 50px;
+    font-size: .78rem;
+    color: rgba(250,247,242,.5);
+    max-width: 620px;
+    font-style: italic;
+  }
+
+  /* ---------- Sobre ---------- */
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 90px;
+    align-items: center;
+  }
+  .about-visual{
+    position: relative;
+  }
+  .about-visual .img-main{
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .about-visual .img-main img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .about-visual .img-detail{
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 55%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border: 8px solid var(--cream);
+  }
+  .about-visual .img-detail img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .about-content h2{ margin: 20px 0 28px; }
+  .about-content p{ margin-bottom: 18px; font-size: .98rem; }
+  .about-signature{
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .about-signature .sig-name{
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--ink);
+  }
+  .about-signature .sig-role{
+    font-size: .72rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- Depoimentos ---------- */
+  .testimonials{ background: var(--paper); }
+  .testimonials-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+  }
+  .test-card{
+    padding: 42px 36px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color .4s ease;
+  }
+  .test-card:hover{ border-color: var(--gold-soft); }
+  .test-card .quote-mark{
+    font-family: var(--serif);
+    font-size: 3.6rem;
+    color: var(--gold-soft);
+    line-height: .6;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .test-card p{
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  .test-card .author{
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    font-size: .78rem;
+    letter-spacing: .1em;
+    color: var(--muted);
+  }
+  .test-card .author strong{
+    display: block;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: .9rem;
+    letter-spacing: .05em;
+    text-transform: none;
+    margin-bottom: 3px;
+  }
+  .stars{ color: var(--gold); font-size: .8rem; letter-spacing: 3px; margin-bottom: 20px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: flex-start;
+  }
+  .faq-list{ border-top: 1px solid var(--line); }
+  .faq-item{
+    border-bottom: 1px solid var(--line);
+    padding: 26px 0;
+  }
+  .faq-q{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    text-align: left;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--ink);
+    font-weight: 400;
+    padding: 0;
+  }
+  .faq-q .plus{
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    position: relative;
+    transition: transform .4s ease;
+  }
+  .faq-q .plus::before,
+  .faq-q .plus::after{
+    content:"";
+    position: absolute;
+    background: var(--gold);
+    top: 50%; left: 50%;
+    transition: transform .4s ease, opacity .3s ease;
+  }
+  .faq-q .plus::before{
+    width: 14px; height: 1px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-q .plus::after{
+    width: 1px; height: 14px;
+    transform: translate(-50%, -50%);
+  }
+  .faq-item.open .faq-q .plus::after{
+    transform: translate(-50%, -50%) rotate(90deg);
+    opacity: 0;
+  }
+  .faq-a{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease, margin .4s ease;
+  }
+  .faq-item.open .faq-a{
+    max-height: 260px;
+    margin-top: 18px;
+  }
+  .faq-a p{
+    font-size: .92rem;
+    color: var(--muted);
+    max-width: 62ch;
+  }
+
+  /* ---------- CTA Final ---------- */
+  .final-cta{
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta-inner{
+    background: var(--ink);
+    color: var(--cream);
+    padding: 90px 80px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+  }
+  .final-cta-inner::before{
+    content:"";
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--gold);
+  }
+  .final-cta h2{
+    color: var(--cream);
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    margin: 18px 0 22px;
+  }
+  .final-cta p{ color: rgba(250,247,242,.72); max-width: 46ch; }
+  .final-cta .eyebrow{ color: var(--gold-soft); }
+  .final-cta .eyebrow::before{ background: var(--gold-soft); }
+  .cta-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .cta-actions .btn{ width: 100%; justify-content: center; }
+  .cta-actions small{
+    color: rgba(250,247,242,.5);
+    font-size: .74rem;
+    letter-spacing: .06em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--cream);
+    padding: 70px 0 40px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-grid{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 60px;
+  }
+  .footer-brand p{
+    font-size: .88rem;
+    color: var(--muted);
+    margin-top: 20px;
+    max-width: 34ch;
+  }
+  .footer-col h4{
+    font-family: var(--sans);
+    font-size: .72rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .footer-col ul{ list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col a, .footer-col li{
+    font-size: .88rem;
+    color: var(--muted);
+    transition: color .3s ease;
+  }
+  .footer-col a:hover{ color: var(--gold); }
+  .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 34px;
+    border-top: 1px solid var(--line);
+    font-size: .78rem;
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+
+  /* ---------- Botão flutuante WhatsApp ---------- */
+  .whats-float{
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    z-index: 60;
+    width: 54px; height: 54px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 34px rgba(37,211,102,.35);
+    transition: transform .3s ease;
+  }
+  .whats-float:hover{ transform: scale(1.08); }
+  .whats-float svg{ width: 26px; height: 26px; }
+
+  /* ---------- Animações on-scroll ---------- */
+  .reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============================================
+     RESPONSIVO
+     ============================================ */
+  @media (max-width: 1080px){
+    :root{ --pad: 26px; }
+    .hero-grid{ gap: 50px; }
+    .procedures-grid{ grid-template-columns: repeat(2, 1fr); }
+    .diff-grid{ grid-template-columns: repeat(2, 1fr); gap: 34px; }
+    .about-grid{ gap: 60px; }
+    .about-visual .img-detail{ right: -20px; bottom: -30px; }
+    .testimonials-grid{ grid-template-columns: 1fr 1fr; }
+    .testimonials-grid .test-card:last-child{ grid-column: span 2; }
+    .faq-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .final-cta-inner{ padding: 70px 50px; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 860px){
+    section{ padding: 80px 0; }
+    .nav-links{ display: none; }
+    .nav-cta{ padding: 12px 20px; font-size: .72rem; }
+    .menu-toggle{
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+    }
+    .menu-toggle span{
+      display: block;
+      width: 22px; height: 1px;
+      background: var(--ink);
+    }
+
+    .hero{ padding: 60px 0 80px; }
+    .hero-grid{ grid-template-columns: 1fr; gap: 70px; }
+    .hero-visual{ max-width: 480px; margin: 0 auto; width: 100%; }
+    .hero-badge{ left: -14px; bottom: 20px; padding: 16px 20px; }
+    .hero-meta{ gap: 24px; flex-wrap: wrap; }
+    .hero-meta div strong{ font-size: 1.5rem; }
+
+    .procedures-grid{ grid-template-columns: 1fr; }
+    .ba-grid{ grid-template-columns: 1fr; gap: 40px; }
+
+    .about-grid{ grid-template-columns: 1fr; gap: 90px; }
+    .about-visual{ max-width: 460px; margin: 0 auto; width: 100%; }
+
+    .testimonials-grid{ grid-template-columns: 1fr; }
+    .testimonials-grid .test-card:last-child{ grid-column: auto; }
+
+    .final-cta-inner{
+      grid-template-columns: 1fr;
+      padding: 60px 34px;
+      gap: 40px;
+    }
+    .cta-actions{ width: 100%; }
+
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 520px){
+    :root{ --pad: 20px; }
+    header .container{ padding: 0 18px; }
+    .nav{ height: 72px; }
+    .logo{ font-size: 1.25rem; }
+
+    section{ padding: 66px 0; }
+    .section-head{ margin-bottom: 48px; }
+
+    .hero-meta{ gap: 18px; padding-top: 26px; margin-top: 40px; }
+    .hero-meta div strong{ font-size: 1.3rem; }
+    .hero-meta div span{ font-size: .62rem; }
+
+    .hero-badge{
+      position: static;
+      margin-top: 20px;
+      max-width: 100%;
+    }
+    .hero-visual::before,
+    .hero-visual::after{ display: none; }
+
+    .proc-body{ padding: 0 24px; }
+    .proc-card{ padding-bottom: 32px; }
+
+    .about-visual .img-detail{
+      position: static;
+      width: 100%;
+      margin-top: 12px;
+      border: none;
+      aspect-ratio: 5/3;
+    }
+
+    .test-card{ padding: 34px 26px; }
+
+    .final-cta-inner{ padding: 50px 24px; }
+    .cta-actions .btn{ padding: 15px 20px; font-size: .7rem; }
+
+    .footer-grid{ grid-template-columns: 1fr; gap: 34px; }
+    .footer-bottom{ flex-direction: column; }
+
+    .whats-float{ width: 48px; height: 48px; bottom: 18px; right: 18px; }
+    .whats-float svg{ width: 22px; height: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+<header>
+  <div class="container nav">
+    <a href="#" class="logo" aria-label="Lumina Estética">
+      Lumina<span>.</span>
+      <small>Estética Avançada</small>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#procedimentos">Procedimentos</a></li>
+        <li><a href="#diferenciais">A Clínica</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#sobre">Especialista</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
+    </nav>
+
+    <a href="#agendar" class="btn btn-primary nav-cta">
+      Agendar <span class="arrow">→</span>
+    </a>
+  </div>
+</header>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="eyebrow">Beleza autêntica, resultado real</span>
+      <h1>Realce sua <em>beleza natural</em> com quem entende de você.</h1>
+      <p class="lead">
+        Na Lumina, cada protocolo é desenhado para valorizar o que você já tem.
+        Procedimentos estéticos avançados, ambiente acolhedor e um olhar atento
+        aos detalhes — porque sofisticação está na sutileza.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#agendar" class="btn btn-primary">
+          Agendar avaliação <span class="arrow">→</span>
+        </a>
+        <a href="#procedimentos" class="btn btn-outline">Ver procedimentos</a>
+      </div>
+
+      <div class="hero-meta">
+        <div>
+          <strong>+2.400</strong>
+          <span>Procedimentos realizados</span>
+        </div>
+        <div>
+          <strong>9 anos</strong>
+          <span>De experiência clínica</span>
+        </div>
+        <div>
+          <strong>4.9★</strong>
+          <span>Avaliação das pacientes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="frame">
+        <!-- SUBSTITUIR: foto principal do hero — retrato elegante, luz natural, tons neutros -->
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=900&q=80" alt="Retrato elegante de mulher em ambiente iluminado" />
+      </div>
+      <div class="hero-badge">
+        <span class="star">★★★★★</span>
+        <p>
+          "Resultados delicados e naturais."
+          <small>Paciente Lumina</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAIXA / MARQUEE
+     ========================================================= -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Harmonização facial</span>
+    <span>Skincare clínico</span>
+    <span>Protocolos personalizados</span>
+    <span>Ambiente acolhedor</span>
+    <span>Resultados naturais</span>
+    <span>Harmonização facial</span>
+    <span>Skincare clínico</span>
+    <span>Protocolos personalizados</span>
+    <span>Ambiente acolhedor</span>
+    <span>Resultados naturais</span>
+  </div>
+</div>
+
+<!-- =========================================================
+     PROCEDIMENTOS
+     ========================================================= -->
+<section class="procedures" id="procedimentos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Nossos protocolos</span>
+      <h2>Procedimentos que respeitam a sua essência</h2>
+      <p class="lead" style="margin: 0 auto;">
+        Cada tratamento começa com uma avaliação minuciosa e é conduzido com técnica,
+        sensibilidade e produtos de altíssima performance.
+      </p>
+    </div>
+
+    <div class="procedures-grid">
+      <!-- Card 1 -->
+      <article class="proc-card reveal">
+        <div class="proc-image">
+          <!-- SUBSTITUIR: foto harmonização facial -->
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Procedimento de harmonização facial" />
+        </div>
+        <div class="proc-body">
+          <span class="num">— 01</span>
+          <h3>Harmonização Facial</h3>
+          <p>
+            Reequilíbrio das proporções do rosto com técnicas minimamente invasivas.
+            Realça contornos sem perder a naturalidade das suas expressões.
+          </p>
+          <a href="#agendar" class="link">Saiba mais</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="proc-card reveal">
+        <div class="proc-image">
+          <!-- SUBSTITUIR: foto skincare / limpeza de pele -->
+          <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=800&q=80" alt="Tratamento de skincare clínico" />
+        </div>
+        <div class="proc-body">
+          <span class="num">— 02</span>
+          <h3>Skincare Clínico</h3>
+          <p>
+            Protocolos personalizados de limpeza profunda, peeling e revitalização
+            para devolver viço, textura uniforme e luminosidade à pele.
+          </p>
+          <a href="#agendar" class="link">Saiba mais</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="proc-card reveal">
+        <div class="proc-image">
+          <!-- SUBSTITUIR: foto procedimento corporal -->
+          <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=800&q=80" alt="Procedimento estético corporal" />
+        </div>
+        <div class="proc-body">
+          <span class="num">— 03</span>
+          <h3>Estética Corporal</h3>
+          <p>
+            Tecnologias de alta performance para firmeza, contorno e cuidado
+            integral do corpo — com foco em conforto e resultado progressivo.
+          </p>
+          <a href="#agendar" class="link">Saiba mais</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     DIFERENCIAIS
+     ========================================================= -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por que a Lumina</span>
+      <h2>Um cuidado que começa antes da técnica</h2>
+      <p class="lead">
+        Acreditamos que estética é sobre autoestima. Por isso, cada detalhe da
+        nossa experiência foi pensado para que você se sinta segura e acolhida.
+      </p>
+    </div>
+
+    <div class="diff-grid">
+      <div class="diff-item reveal">
+        <div class="icon">01</div>
+        <h3>Avaliação Personalizada</h3>
+        <p>
+          Nenhum protocolo é igual. Escutamos suas expectativas antes de
+          desenhar qualquer plano de tratamento.
+        </p>
+      </div>
+      <div class="diff-item reveal">
+        <div class="icon">02</div>
+        <h3>Profissionais Certificados</h3>
+        <p>
+          Equipe especializada e em constante atualização nas técnicas mais
+          modernas da estética avançada.
+        </p>
+      </div>
+      <div class="diff-item reveal">
+        <div class="icon">03</div>
+        <h3>Produtos Premium</h3>
+        <p>
+          Trabalhamos com marcas referência mundial, aprovadas por órgãos
+          reguladores e com rastreabilidade garantida.
+        </p>
+      </div>
+      <div class="diff-item reveal">
+        <div class="icon">04</div>
+        <h3>Ambiente Exclusivo</h3>
+        <p>
+          Espaço reservado, silencioso e confortável — para que cada visita
+          seja também um momento de pausa.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     ANTES E DEPOIS
+     ========================================================= -->
+<section class="beforeafter" id="resultados">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Resultados reais</span>
+      <h2>Transformações sutis, resultados memoráveis</h2>
+      <p class="lead">
+        Cada imagem representa uma história e um protocolo desenhado sob medida.
+        Nossos resultados são construídos com técnica e respeito ao tempo de cada pele.
+      </p>
+    </div>
+
+    <div class="ba-grid">
+      <div class="ba-card reveal">
+        <div class="ba-imgs">
+          <!-- SUBSTITUIR: foto "antes" -->
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=500&q=80" alt="Antes" />
+          <!-- SUBSTITUIR: foto "depois" -->
+          <img src="https://images.unsplash.com/photo-1620332372374-f108c53d2e03?auto=format&fit=crop&w=500&q=80" alt="Depois" />
+        </div>
+        <div class="labels"><span>Antes</span><span>Depois</span></div>
+        <div class="caption">
+          <strong>Harmonização Facial</strong>
+          <span>60 dias</span>
+        </div>
+      </div>
+
+      <div class="ba-card reveal">
+        <div class="ba-imgs">
+          <!-- SUBSTITUIR: foto "antes" -->
+          <img src="https://images.unsplash.com/photo-1512303452027-e0f0d4e1c1f1?auto=format&fit=crop&w=500&q=80" alt="Antes" />
+          <!-- SUBSTITUIR: foto "depois" -->
+          <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=500&q=80" alt="Depois" />
+        </div>
+        <div class="labels"><span>Antes</span><span>Depois</span></div>
+        <div class="caption">
+          <strong>Skincare Clínico</strong>
+          <span>45 dias</span>
+        </div>
+      </div>
+
+      <div class="ba-card reveal">
+        <div class="ba-imgs">
+          <!-- SUBSTITUIR: foto "antes" -->
+          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80" alt="Antes" />
+          <!-- SUBSTITUIR: foto "depois" -->
+          <img src="https://images.unsplash.com/photo-1614108763791-6a3c1c1ecc1b?auto=format&fit=crop&w=500&q=80" alt="Depois" />
+        </div>
+        <div class="labels"><span>Antes</span><span>Depois</span></div>
+        <div class="caption">
+          <strong>Estética Corporal</strong>
+          <span>90 dias</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="ba-disclaimer">
+      *Imagens ilustrativas. Resultados variam conforme características individuais,
+      protocolo escolhido e adesão ao tratamento. Consulte nossa equipe durante a avaliação.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+     SOBRE
+     ========================================================= -->
+<section id="sobre">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="img-main">
+        <!-- SUBSTITUIR: foto da profissional / clínica -->
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80" alt="Especialista da Lumina Estética" />
+      </div>
+      <div class="img-detail">
+        <!-- SUBSTITUIR: detalhe da clínica / ambiente -->
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=500&q=80" alt="Detalhe do ambiente da clínica" />
+      </div>
+    </div>
+
+    <div class="about-content reveal">
+      <span class="eyebrow">Quem cuida de você</span>
+      <h2>Uma clínica que trata estética como arte</h2>
+      <p>
+        A Lumina nasceu do desejo de criar um espaço onde técnica apurada e
+        sensibilidade estética caminham juntas. Aqui, cada paciente é única —
+        e cada protocolo é construído a partir da sua história, dos seus traços
+        e do que faz sentido para você.
+      </p>
+      <p>
+        Nossa equipe é formada por profissionais com formação sólida e olhar
+        clínico, dedicados a resultados que respeitam a naturalidade. Sem
+        exageros, sem padronizações. Apenas o cuidado certo, no tempo certo.
+      </p>
+      <p>
+        Mais do que procedimentos, entregamos uma experiência: acolhimento,
+        escuta e a segurança de estar em mãos experientes.
+      </p>
+
+      <div class="about-signature">
+        <div>
+          <div class="sig-name">Dra. Marina Alencar</div>
+          <div class="sig-role">Diretora Clínica · CRM 000.000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     DEPOIMENTOS
+     ========================================================= -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">O que dizem nossas pacientes</span>
+      <h2>Histórias que nos inspiram</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="test-card reveal">
+        <div>
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>
+            Saí da avaliação com a sensação de ter sido realmente ouvida.
+            O resultado ficou delicado, exatamente como eu queria — natural,
+            sem parecer que fiz algo.
+          </p>
+        </div>
+        <div class="author">
+          <strong>Camila R.</strong>
+          Harmonização facial · São Paulo
+        </div>
+      </article>
+
+      <article class="test-card reveal">
+        <div>
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>
+            A clínica é um refúgio. Ambiente impecável, equipe atenciosa e
+            uma pele que finalmente respondeu ao tratamento. Virei paciente fiel.
+          </p>
+        </div>
+        <div class="author">
+          <strong>Juliana M.</strong>
+          Skincare clínico · Campinas
+        </div>
+      </article>
+
+      <article class="test-card reveal">
+        <div>
+          <div class="quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p>
+            Profissionalismo do começo ao fim. Explicaram cada etapa, ajustaram
+            o protocolo ao meu tempo e o resultado superou minhas expectativas.
+          </p>
+        </div>
+        <div class="author">
+          <strong>Renata F.</strong>
+          Estética corporal · Santos
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ
+     ========================================================= -->
+<section id="faq">
+  <div class="container faq-grid">
+    <div class="section-head reveal" style="margin-bottom: 0;">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Tudo o que você precisa saber antes de agendar</h2>
+      <p class="lead">
+        Se ficar qualquer dúvida, nossa equipe está à disposição pelo WhatsApp
+        para orientar você com atenção.
+      </p>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">
+          Como funciona a primeira avaliação?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>
+            A avaliação é um momento dedicado a entender suas expectativas,
+            analisar sua pele e histórico clínico. A partir disso, desenhamos
+            um protocolo personalizado, com indicação de sessões, tempo de
+            resultado e investimento.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Os procedimentos doem?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>
+            A maioria dos nossos protocolos é minimamente invasiva e utiliza
+            anestésicos tópicos para garantir conforto. Você será orientada
+            em cada etapa e nossa equipe acompanha sua sensibilidade durante
+            todo o procedimento.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Em quanto tempo vejo resultados?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>
+            Depende do protocolo escolhido. Procedimentos de skincare, por
+            exemplo, costumam mostrar resultado já nas primeiras semanas.
+            Já a harmonização facial tem resultado progressivo, com ápice
+            entre 30 e 60 dias.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Quais formas de pagamento vocês aceitam?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>
+            Aceitamos cartão de crédito com parcelamento, PIX e transferência.
+            Também oferecemos condições especiais para protocolos com múltiplas
+            sessões — fale com nossa equipe para detalhes.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Preciso de encaminhamento médico?
+          <span class="plus"></span>
+        </button>
+        <div class="faq-a">
+          <p>
+            Não é necessário. Nossa avaliação inicial já contempla toda a
+            anamnese clínica necessária. Caso identifiquemos alguma condição
+            que exija acompanhamento complementar, orientaremos com
+            transparência.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CTA FINAL
+     ========================================================= -->
+<section class="final-cta" id="agendar">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <div>
+        <span class="eyebrow">Vamos começar?</span>
+        <h2>Agende sua avaliação personalizada</h2>
+        <p>
+          Atendimento por ordem de agendamento, com horários limitados
+          por semana. Fale conosco pelo WhatsApp e garanta o seu momento
+          de cuidado na Lumina.
+        </p>
+      </div>
+
+      <div class="cta-actions">
+        <!-- SUBSTITUIR: número de WhatsApp real (formato: 55 + DDD + número) -->
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Lumina%20Est%C3%A9tica." class="btn btn-gold" target="_blank" rel="noopener">
+          Falar no WhatsApp <span class="arrow">→</span>
+        </a>
+        <a href="tel:+551140028922" class="btn btn-outline" style="border-color: rgba(250,247,242,.4); color: var(--cream);">
+          Ligar: (11) 4002-8922
+        </a>
+        <small>Resposta em até 2 horas em horário comercial.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Lumina<span>.</span><small>Estética Avançada</small></a>
+        <p>
+          Clínica de estética premium dedicada a realçar a beleza natural
+          com técnica, sensibilidade e cuidado personalizado.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#procedimentos">Procedimentos</a></li>
+          <li><a href="#diferenciais">A Clínica</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#sobre">Especialista</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li>(11) 4002-8922</li>
+          <li>contato@luminaestetica.com.br</li>
+          <li>Rua das Acácias, 480 — Jardins</li>
+          <li>São Paulo · SP</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horários</h4>
+        <ul>
+          <li>Seg a Sex — 9h às 20h</li>
+          <li>Sábado — 9h às 14h</li>
+          <li>Domingo — Fechado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Lumina Estética · Todos os direitos reservados.</span>
+      <span>Política de Privacidade · Termos de Uso</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     BOTÃO FLUTUANTE WHATSAPP
+     ========================================================= -->
+<a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Lumina%20Est%C3%A9tica."
+   class="whats-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.52 3.48A11.9 11.9 0 0 0 12.03 0C5.5 0 .2 5.3.2 11.83c0 2.09.55 4.12 1.6 5.92L0 24l6.4-1.68a11.85 11.85 0 0 0 5.63 1.44h.01c6.53 0 11.83-5.3 11.83-11.83 0-3.16-1.23-6.13-3.35-8.45ZM12.04 21.7h-.01a9.85 9.85 0 0 1-5.02-1.38l-.36-.21-3.8 1 1.02-3.7-.24-.38a9.83 9.83 0 0 1-1.5-5.2c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.79 9.79 0 0 1 2.88 6.96c0 5.44-4.42 9.87-9.79 9.87Zm5.4-7.39c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.48 1.08 2.9 1.23 3.1.15.2 2.12 3.24 5.14 4.55.72.31 1.28.5 1.72.63.72.23 1.38.2 1.9.12.58-.09 1.75-.71 2-1.4.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/>
+  </svg>
+</a>
+
+<script>
+  /* ============================================
+     1. FAQ — acordeão simples
+     ============================================ */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* ============================================
+     2. Reveal on scroll — IntersectionObserver
+     ============================================ */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ============================================
+     3. Marcação para futura reconstrução no Elementor
+        — Este arquivo é apenas referência visual.
+     ============================================ */
+  console.log('%cLumina Estética — conceito visual','color:#B48A55;font-family:serif;font-size:14px;');
+</script>
+
+</body>
+</html>
